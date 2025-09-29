@@ -24,7 +24,6 @@ import {
   TooltipTrigger,
 } from '@/components/ui/tooltip';
 import { Button } from './ui/button';
-import { Loader2Icon } from 'lucide-react';
 import {
   ResizableHandle,
   ResizablePanel,
@@ -34,33 +33,8 @@ import Container from './Container';
 import { categories, categoryMap, widgets } from '@/constants';
 import { Badge } from './ui/badge';
 
-const IFRAME_HTML = `
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <style>body { margin: 0; overflow: hidden; }</style>
-  <script>
-    // Create a promise that resolves when the Flutter engine is ready.
-    window.flutterReady = new Promise(function (resolve) {
-      window.addEventListener('flutter-initialized', resolve, { once: true });
-    });
-  </script>
-</head>
-<body>
-  <div id="output"></div>
-  <script src="https://storage.googleapis.com/dartpad/dart_sdk.js"></script>
-  <script src="https://storage.googleapis.com/dartpad/flutter_web.js"></script>
-</body>
-</html>
-`;
-
 const WidgetGrid = () => {
   const [activeCategory, setActiveCategory] = useState('All');
-  const [isCompiling, setIsCompiling] = useState(false);
-  console.log('🚀 ~ WidgetGrid ~ isCompiling:', isCompiling);
-  const [error, setError] = useState<string | null>(null);
-  const iframeRef = useRef<HTMLIFrameElement>(null);
 
   const categoryCounts = categories.reduce((acc, category) => {
     if (category === 'All') {
