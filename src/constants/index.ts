@@ -28,6 +28,13 @@ class MyApp extends StatelessWidget {
     );
   }
 }`,
+    properties: [
+      { name: 'appBar', type: 'AppBar', defaultValue: 'null' },
+      { name: 'body', type: 'Widget', defaultValue: 'null' },
+      { name: 'floatingActionButton', type: 'Widget', defaultValue: 'null' },
+      { name: 'drawer', type: 'Widget', defaultValue: 'null' },
+      { name: 'backgroundColor', type: 'Color', defaultValue: 'null' },
+    ],
   },
   {
     name: 'AppBar',
@@ -64,6 +71,13 @@ class MyApp extends StatelessWidget {
     );
   }
 }`,
+    properties: [
+      { name: 'leading', type: 'Widget', defaultValue: 'null' },
+      { name: 'title', type: 'Widget', defaultValue: 'null' },
+      { name: 'actions', type: 'List<Widget>', defaultValue: 'null' },
+      { name: 'elevation', type: 'double', defaultValue: '4.0' },
+      { name: 'backgroundColor', type: 'Color', defaultValue: 'null' },
+    ],
   },
   {
     name: 'SliverAppBar',
@@ -101,6 +115,13 @@ class MyApp extends StatelessWidget {
     );
   }
 }`,
+    properties: [
+      { name: 'expandedHeight', type: 'double', defaultValue: 'null' },
+      { name: 'flexibleSpace', type: 'Widget', defaultValue: 'null' },
+      { name: 'pinned', type: 'bool', defaultValue: 'false' },
+      { name: 'floating', type: 'bool', defaultValue: 'false' },
+      { name: 'snap', type: 'bool', defaultValue: 'false' },
+    ],
   },
   {
     name: 'Drawer',
@@ -145,6 +166,11 @@ class MyApp extends StatelessWidget {
     );
   }
 }`,
+    properties: [
+      { name: 'child', type: 'Widget', defaultValue: 'null' },
+      { name: 'elevation', type: 'double', defaultValue: '16.0' },
+      { name: 'width', type: 'double', defaultValue: '304.0' },
+    ],
   },
   {
     name: 'BottomNavigationBar',
@@ -187,6 +213,16 @@ class MyApp extends StatelessWidget {
     );
   }
 }`,
+    properties: [
+      {
+        name: 'items',
+        type: 'List<BottomNavigationBarItem>',
+        defaultValue: '[]',
+      },
+      { name: 'onTap', type: 'ValueChanged<int>', defaultValue: 'null' },
+      { name: 'currentIndex', type: 'int', defaultValue: '0' },
+      { name: 'elevation', type: 'double', defaultValue: '8.0' },
+    ],
   },
   {
     name: 'MaterialApp',
@@ -209,6 +245,16 @@ void main() {
     ),
   );
 }`,
+    properties: [
+      { name: 'home', type: 'Widget', defaultValue: 'null' },
+      { name: 'theme', type: 'ThemeData', defaultValue: 'null' },
+      { name: 'darkTheme', type: 'ThemeData', defaultValue: 'null' },
+      {
+        name: 'routes',
+        type: 'Map<String, WidgetBuilder>',
+        defaultValue: '{}',
+      },
+    ],
   },
   {
     name: 'Container',
@@ -235,6 +281,14 @@ void main() => runApp(
     ),
   ),
 );`,
+    properties: [
+      { name: 'child', type: 'Widget', defaultValue: 'null' },
+      { name: 'color', type: 'Color', defaultValue: 'null' },
+      { name: 'width', type: 'double', defaultValue: 'null' },
+      { name: 'height', type: 'double', defaultValue: 'null' },
+      { name: 'padding', type: 'EdgeInsetsGeometry', defaultValue: 'null' },
+      { name: 'margin', type: 'EdgeInsetsGeometry', defaultValue: 'null' },
+    ],
   },
   {
     name: 'Padding',
@@ -259,6 +313,10 @@ void main() => runApp(
     ),
   ),
 );`,
+    properties: [
+      { name: 'padding', type: 'EdgeInsetsGeometry', defaultValue: 'required' },
+      { name: 'child', type: 'Widget', defaultValue: 'null' },
+    ],
   },
   {
     name: 'Center',
@@ -277,6 +335,11 @@ void main() => runApp(
     ),
   ),
 );`,
+    properties: [
+      { name: 'child', type: 'Widget', defaultValue: 'null' },
+      { name: 'widthFactor', type: 'double', defaultValue: 'null' },
+      { name: 'heightFactor', type: 'double', defaultValue: 'null' },
+    ],
   },
   {
     name: 'SizedBox',
@@ -302,6 +365,11 @@ void main() => runApp(
     ),
   ),
 );`,
+    properties: [
+      { name: 'width', type: 'double', defaultValue: 'null' },
+      { name: 'height', type: 'double', defaultValue: 'null' },
+      { name: 'child', type: 'Widget', defaultValue: 'null' },
+    ],
   },
   {
     name: 'Row',
@@ -327,6 +395,28 @@ void main() => runApp(
     ),
   ),
 );`,
+    properties: [
+      {
+        name: 'children',
+        type: 'List<Widget>',
+        defaultValue: 'const <Widget>[]',
+      },
+      {
+        name: 'mainAxisAlignment',
+        type: 'MainAxisAlignment',
+        defaultValue: 'MainAxisAlignment.start',
+      },
+      {
+        name: 'crossAxisAlignment',
+        type: 'CrossAxisAlignment',
+        defaultValue: 'CrossAxisAlignment.center',
+      },
+      {
+        name: 'mainAxisSize',
+        type: 'MainAxisSize',
+        defaultValue: 'MainAxisSize.max',
+      },
+    ],
   },
   {
     name: 'Column',
@@ -352,6 +442,28 @@ void main() => runApp(
     ),
   ),
 );`,
+    properties: [
+      {
+        name: 'children',
+        type: 'List<Widget>',
+        defaultValue: 'const <Widget>[]',
+      },
+      {
+        name: 'mainAxisAlignment',
+        type: 'MainAxisAlignment',
+        defaultValue: 'MainAxisAlignment.start',
+      },
+      {
+        name: 'crossAxisAlignment',
+        type: 'CrossAxisAlignment',
+        defaultValue: 'CrossAxisAlignment.center',
+      },
+      {
+        name: 'mainAxisSize',
+        type: 'MainAxisSize',
+        defaultValue: 'MainAxisSize.max',
+      },
+    ],
   },
   {
     name: 'Stack',
@@ -378,6 +490,19 @@ void main() => runApp(
     ),
   ),
 );`,
+    properties: [
+      {
+        name: 'children',
+        type: 'List<Widget>',
+        defaultValue: 'const <Widget>[]',
+      },
+      {
+        name: 'alignment',
+        type: 'AlignmentGeometry',
+        defaultValue: 'AlignmentDirectional.topStart',
+      },
+      { name: 'fit', type: 'StackFit', defaultValue: 'StackFit.loose' },
+    ],
   },
   {
     name: 'Expanded',
@@ -402,6 +527,10 @@ void main() => runApp(
     ),
   ),
 );`,
+    properties: [
+      { name: 'flex', type: 'int', defaultValue: '1' },
+      { name: 'child', type: 'Widget', defaultValue: 'required' },
+    ],
   },
 
   // 2. Buttons & Actions
@@ -426,6 +555,11 @@ void main() => runApp(
     ),
   ),
 );`,
+    properties: [
+      { name: 'onPressed', type: 'VoidCallback?', defaultValue: 'required' },
+      { name: 'child', type: 'Widget', defaultValue: 'required' },
+      { name: 'style', type: 'ButtonStyle', defaultValue: 'null' },
+    ],
   },
   {
     name: 'FilledButton',
@@ -448,6 +582,11 @@ void main() => runApp(
     ),
   ),
 );`,
+    properties: [
+      { name: 'onPressed', type: 'VoidCallback?', defaultValue: 'required' },
+      { name: 'child', type: 'Widget', defaultValue: 'required' },
+      { name: 'style', type: 'ButtonStyle', defaultValue: 'null' },
+    ],
   },
   {
     name: 'OutlinedButton',
@@ -471,6 +610,11 @@ void main() => runApp(
     ),
   ),
 );`,
+    properties: [
+      { name: 'onPressed', type: 'VoidCallback?', defaultValue: 'required' },
+      { name: 'child', type: 'Widget', defaultValue: 'required' },
+      { name: 'style', type: 'ButtonStyle', defaultValue: 'null' },
+    ],
   },
   {
     name: 'TextButton',
@@ -493,6 +637,11 @@ void main() => runApp(
     ),
   ),
 );`,
+    properties: [
+      { name: 'onPressed', type: 'VoidCallback?', defaultValue: 'required' },
+      { name: 'child', type: 'Widget', defaultValue: 'required' },
+      { name: 'style', type: 'ButtonStyle', defaultValue: 'null' },
+    ],
   },
   {
     name: 'IconButton',
@@ -516,6 +665,12 @@ void main() => runApp(
     ),
   ),
 );`,
+    properties: [
+      { name: 'icon', type: 'Widget', defaultValue: 'required' },
+      { name: 'onPressed', type: 'VoidCallback?', defaultValue: 'required' },
+      { name: 'iconSize', type: 'double', defaultValue: '24.0' },
+      { name: 'tooltip', type: 'String', defaultValue: 'null' },
+    ],
   },
   {
     name: 'FloatingActionButton (FAB)',
@@ -539,6 +694,12 @@ void main() => runApp(
     ),
   ),
 );`,
+    properties: [
+      { name: 'child', type: 'Widget', defaultValue: 'required' },
+      { name: 'onPressed', type: 'VoidCallback?', defaultValue: 'required' },
+      { name: 'tooltip', type: 'String', defaultValue: 'null' },
+      { name: 'backgroundColor', type: 'Color', defaultValue: 'null' },
+    ],
   },
 
   // Menus & Popups
@@ -585,6 +746,12 @@ class MyApp extends StatelessWidget {
     );
   }
 }`,
+    properties: [
+      { name: 'title', type: 'Widget', defaultValue: 'null' },
+      { name: 'content', type: 'Widget', defaultValue: 'null' },
+      { name: 'actions', type: 'List<Widget>', defaultValue: 'null' },
+      { name: 'elevation', type: 'double', defaultValue: '24.0' },
+    ],
   },
   {
     name: 'PopupMenuButton',
@@ -621,6 +788,19 @@ void main() => runApp(
     ),
   ),
 );`,
+    properties: [
+      {
+        name: 'itemBuilder',
+        type: 'PopupMenuItemBuilder<T>',
+        defaultValue: 'required',
+      },
+      {
+        name: 'onSelected',
+        type: 'PopupMenuItemSelected<T>',
+        defaultValue: 'null',
+      },
+      { name: 'icon', type: 'Widget', defaultValue: 'null' },
+    ],
   },
   {
     name: 'DropdownButton',
@@ -651,6 +831,16 @@ void main() => runApp(
     ),
   ),
 );`,
+    properties: [
+      {
+        name: 'items',
+        type: 'List<DropdownMenuItem<T>>',
+        defaultValue: 'required',
+      },
+      { name: 'value', type: 'T', defaultValue: 'null' },
+      { name: 'onChanged', type: 'ValueChanged<T?>', defaultValue: 'required' },
+      { name: 'hint', type: 'Widget', defaultValue: 'null' },
+    ],
   },
   {
     name: 'SnackBar',
@@ -685,6 +875,11 @@ class MyApp extends StatelessWidget {
     );
   }
 }`,
+    properties: [
+      { name: 'content', type: 'Widget', defaultValue: 'required' },
+      { name: 'action', type: 'SnackBarAction', defaultValue: 'null' },
+      { name: 'duration', type: 'Duration', defaultValue: '4 seconds' },
+    ],
   },
   {
     name: 'Tooltip',
@@ -707,6 +902,11 @@ void main() => runApp(
     ),
   ),
 );`,
+    properties: [
+      { name: 'message', type: 'String', defaultValue: 'required' },
+      { name: 'child', type: 'Widget', defaultValue: 'null' },
+      { name: 'height', type: 'double', defaultValue: '32.0' },
+    ],
   },
 
   // 3. Data Display & Input
@@ -730,6 +930,12 @@ void main() => runApp(
     ),
   ),
 );`,
+    properties: [
+      { name: 'data', type: 'String', defaultValue: 'required' },
+      { name: 'style', type: 'TextStyle', defaultValue: 'null' },
+      { name: 'textAlign', type: 'TextAlign', defaultValue: 'null' },
+      { name: 'maxLines', type: 'int', defaultValue: 'null' },
+    ],
   },
   {
     name: 'Icon',
@@ -752,6 +958,11 @@ void main() => runApp(
     ),
   ),
 );`,
+    properties: [
+      { name: 'icon', type: 'IconData', defaultValue: 'required' },
+      { name: 'size', type: 'double', defaultValue: '24.0' },
+      { name: 'color', type: 'Color', defaultValue: 'null' },
+    ],
   },
   {
     name: 'Image',
@@ -772,6 +983,12 @@ void main() => runApp(
     ),
   ),
 );`,
+    properties: [
+      { name: 'image', type: 'ImageProvider', defaultValue: 'required' },
+      { name: 'width', type: 'double', defaultValue: 'null' },
+      { name: 'height', type: 'double', defaultValue: 'null' },
+      { name: 'fit', type: 'BoxFit', defaultValue: 'null' },
+    ],
   },
   {
     name: 'Card',
@@ -797,6 +1014,16 @@ void main() => runApp(
     ),
   ),
 );`,
+    properties: [
+      { name: 'child', type: 'Widget', defaultValue: 'null' },
+      { name: 'color', type: 'Color', defaultValue: 'null' },
+      { name: 'elevation', type: 'double', defaultValue: '1.0' },
+      {
+        name: 'shape',
+        type: 'ShapeBorder',
+        defaultValue: 'RoundedRectangleBorder',
+      },
+    ],
   },
   {
     name: 'Chip',
@@ -822,6 +1049,12 @@ void main() => runApp(
     ),
   ),
 );`,
+    properties: [
+      { name: 'label', type: 'Widget', defaultValue: 'required' },
+      { name: 'avatar', type: 'Widget', defaultValue: 'null' },
+      { name: 'backgroundColor', type: 'Color', defaultValue: 'null' },
+      { name: 'onDeleted', type: 'VoidCallback', defaultValue: 'null' },
+    ],
   },
 
   {
@@ -843,6 +1076,11 @@ void main() => runApp(
     ),
   ),
 );`,
+    properties: [
+      { name: 'value', type: 'double', defaultValue: 'null (indeterminate)' },
+      { name: 'backgroundColor', type: 'Color', defaultValue: 'null' },
+      { name: 'strokeWidth', type: 'double', defaultValue: '4.0' },
+    ],
   },
   {
     name: 'TextField',
@@ -867,6 +1105,20 @@ void main() => runApp(
     ),
   ),
 );`,
+    properties: [
+      {
+        name: 'controller',
+        type: 'TextEditingController',
+        defaultValue: 'null',
+      },
+      {
+        name: 'decoration',
+        type: 'InputDecoration',
+        defaultValue: 'InputDecoration()',
+      },
+      { name: 'keyboardType', type: 'TextInputType', defaultValue: 'null' },
+      { name: 'obscureText', type: 'bool', defaultValue: 'false' },
+    ],
   },
   {
     name: 'TextFormField',
@@ -898,6 +1150,23 @@ void main() => runApp(
     ),
   ),
 );`,
+    properties: [
+      {
+        name: 'controller',
+        type: 'TextEditingController',
+        defaultValue: 'null',
+      },
+      {
+        name: 'decoration',
+        type: 'InputDecoration',
+        defaultValue: 'InputDecoration()',
+      },
+      {
+        name: 'validator',
+        type: 'FormFieldValidator<String>',
+        defaultValue: 'null',
+      },
+    ],
   },
   {
     name: 'InputDecoration',
@@ -925,6 +1194,12 @@ void main() => runApp(
     ),
   ),
 );`,
+    properties: [
+      { name: 'icon', type: 'Widget', defaultValue: 'null' },
+      { name: 'labelText', type: 'String', defaultValue: 'null' },
+      { name: 'hintText', type: 'String', defaultValue: 'null' },
+      { name: 'border', type: 'InputBorder', defaultValue: 'null' },
+    ],
   },
   {
     name: 'Form',
@@ -980,6 +1255,10 @@ class _MyCustomFormState extends State<MyCustomForm> {
     );
   }
 }`,
+    properties: [
+      { name: 'key', type: 'GlobalKey<FormState>', defaultValue: 'null' },
+      { name: 'child', type: 'Widget', defaultValue: 'required' },
+    ],
   },
   // 4. Lists Views & Slivers
   {
@@ -1003,6 +1282,15 @@ void main() => runApp(
     ),
   ),
 );`,
+    properties: [
+      {
+        name: 'children',
+        type: 'List<Widget>',
+        defaultValue: 'const <Widget>[]',
+      },
+      { name: 'scrollDirection', type: 'Axis', defaultValue: 'Axis.vertical' },
+      { name: 'itemExtent', type: 'double', defaultValue: 'null' },
+    ],
   },
   {
     name: 'GridView',
@@ -1028,6 +1316,19 @@ void main() => runApp(
     ),
   ),
 );`,
+    properties: [
+      {
+        name: 'gridDelegate',
+        type: 'SliverGridDelegate',
+        defaultValue: 'required',
+      },
+      {
+        name: 'children',
+        type: 'List<Widget>',
+        defaultValue: 'const <Widget>[]',
+      },
+      { name: 'scrollDirection', type: 'Axis', defaultValue: 'Axis.vertical' },
+    ],
   },
   {
     name: 'CustomScrollView',
@@ -1060,6 +1361,14 @@ void main() => runApp(
     ),
   ),
 );`,
+    properties: [
+      {
+        name: 'slivers',
+        type: 'List<Widget>',
+        defaultValue: 'const <Widget>[]',
+      },
+      { name: 'scrollDirection', type: 'Axis', defaultValue: 'Axis.vertical' },
+    ],
   },
   {
     name: 'SliverList',
@@ -1094,6 +1403,13 @@ void main() => runApp(
     ),
   ),
 );`,
+    properties: [
+      {
+        name: 'delegate',
+        type: 'SliverChildDelegate',
+        defaultValue: 'required',
+      },
+    ],
   },
   {
     name: 'SliverGrid',
@@ -1131,6 +1447,18 @@ void main() => runApp(
     ),
   ),
 );`,
+    properties: [
+      {
+        name: 'gridDelegate',
+        type: 'SliverGridDelegate',
+        defaultValue: 'required',
+      },
+      {
+        name: 'delegate',
+        type: 'SliverChildDelegate',
+        defaultValue: 'required',
+      },
+    ],
   },
 
   // 5. Theming & Effects
@@ -1159,6 +1487,10 @@ void main() => runApp(
     ),
   ),
 );`,
+    properties: [
+      { name: 'data', type: 'ThemeData', defaultValue: 'required' },
+      { name: 'child', type: 'Widget', defaultValue: 'required' },
+    ],
   },
   {
     name: 'ThemeData',
@@ -1185,6 +1517,13 @@ void main() => runApp(
     ),
   ),
 );`,
+    properties: [
+      { name: 'colorScheme', type: 'ColorScheme', defaultValue: 'null' },
+      { name: 'brightness', type: 'Brightness', defaultValue: 'null' },
+      { name: 'primaryColor', type: 'Color', defaultValue: 'null' },
+      { name: 'useMaterial3', type: 'bool', defaultValue: 'false' },
+      { name: 'textTheme', type: 'TextTheme', defaultValue: 'null' },
+    ],
   },
   {
     name: 'MediaQuery',
@@ -1216,6 +1555,10 @@ class MyApp extends StatelessWidget {
     );
   }
 }`,
+    properties: [
+      { name: 'data', type: 'MediaQueryData', defaultValue: 'required' },
+      { name: 'child', type: 'Widget', defaultValue: 'required' },
+    ],
   },
   {
     name: 'ColorScheme',
@@ -1244,6 +1587,13 @@ void main() => runApp(
     ),
   ),
 );`,
+    properties: [
+      { name: 'primary', type: 'Color', defaultValue: 'required' },
+      { name: 'secondary', type: 'Color', defaultValue: 'required' },
+      { name: 'surface', type: 'Color', defaultValue: 'required' },
+      { name: 'background', type: 'Color', defaultValue: 'required' },
+      { name: 'brightness', type: 'Brightness', defaultValue: 'required' },
+    ],
   },
   {
     name: 'BackdropFilter',
@@ -1280,6 +1630,10 @@ void main() => runApp(
     ),
   ),
 );`,
+    properties: [
+      { name: 'filter', type: 'ImageFilter', defaultValue: 'required' },
+      { name: 'child', type: 'Widget', defaultValue: 'null' },
+    ],
   },
   {
     name: 'BoxShadow',
@@ -1314,6 +1668,12 @@ void main() => runApp(
     ),
   ),
 );`,
+    properties: [
+      { name: 'color', type: 'Color', defaultValue: 'const Color(0xFF000000)' },
+      { name: 'offset', type: 'Offset', defaultValue: 'Offset.zero' },
+      { name: 'blurRadius', type: 'double', defaultValue: '0.0' },
+      { name: 'spreadRadius', type: 'double', defaultValue: '0.0' },
+    ],
   },
   {
     name: 'Opacity',
@@ -1335,6 +1695,10 @@ void main() => runApp(
     ),
   ),
 );`,
+    properties: [
+      { name: 'opacity', type: 'double', defaultValue: 'required' },
+      { name: 'child', type: 'Widget', defaultValue: 'null' },
+    ],
   },
   {
     name: 'Transform',
@@ -1361,6 +1725,12 @@ void main() => runApp(
     ),
   ),
 );`,
+    properties: [
+      { name: 'transform', type: 'Matrix4', defaultValue: 'required' },
+      { name: 'origin', type: 'Offset', defaultValue: 'null' },
+      { name: 'alignment', type: 'AlignmentGeometry', defaultValue: 'null' },
+      { name: 'child', type: 'Widget', defaultValue: 'null' },
+    ],
   },
 ];
 

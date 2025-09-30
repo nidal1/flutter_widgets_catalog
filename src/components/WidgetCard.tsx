@@ -26,6 +26,15 @@ import {
   ResizablePanel,
   ResizablePanelGroup,
 } from '@/components/ui/resizable';
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from '@/components/ui/table';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Badge } from './ui/badge';
 import CodeEditor from './CodeEditor';
 import CodePreview from './CodePreview';
@@ -37,6 +46,11 @@ interface WidgetCardProps {
     category: string;
     docUrl: string;
     code?: string;
+    properties?: {
+      name: string;
+      type: string;
+      defaultValue: string;
+    }[];
   };
   editorTheme: string;
 }
@@ -91,9 +105,9 @@ const WidgetCard = ({ widget, editorTheme }: WidgetCardProps) => {
           className="h-[calc(100vh-80px)]"
         >
           <ResizablePanel defaultSize={50}>
-            <div className="h-full p-4">
-              <h3 className="font-semibold mb-2">Flutter Code</h3>
-              <div className="h-[calc(100%-40px)]">
+            <div className="flex flex-col h-full pt-4 px-4 gap-2">
+              <h3 className="font-semibold mb-2 min-h-[36px]">Flutter Code</h3>
+              <div className="max-h-full h-full">
                 <CodeEditor
                   code={widget.code || '// No code example available.'}
                   theme={editorTheme}
@@ -103,9 +117,56 @@ const WidgetCard = ({ widget, editorTheme }: WidgetCardProps) => {
           </ResizablePanel>
           <ResizableHandle withHandle />
           <ResizablePanel defaultSize={50}>
-            <div className="h-full p-4 flex flex-col">
-              <h3 className="font-semibold mb-2">Live Preview</h3>
-              <CodePreview widgetName={widget.name} />
+            <div className="h-full  pt-4 px-4 flex flex-col">
+              <Tabs defaultValue="preview" className="h-full flex flex-col">
+                <TabsList className="mb-2">
+                  <TabsTrigger value="preview">Live Preview</TabsTrigger>
+                  <TabsTrigger value="properties">Properties</TabsTrigger>
+                </TabsList>
+                <TabsContent value="preview" className="flex-grow">
+                  <CodePreview
+                    widgetName={
+                      widget.name !== 'FloatingActionButton (FAB)'
+                        ? widget.name
+                        : 'floatingactionbutton'
+                    }
+                  />
+                </TabsContent>
+                <TabsContent
+                  value="properties"
+                  className="flex-grow overflow-auto"
+                >
+                  <Table>
+                    <TableHeader>
+                      <TableRow>
+                        <TableHead>Property</TableHead>
+                        <TableHead>Type</TableHead>
+                        <TableHead>Default Value</TableHead>
+                      </TableRow>
+                    </TableHeader>
+                    <TableBody>
+                      {widget.properties?.map((prop) => (
+                        <TableRow key={prop.name}>
+                          <TableCell className="font-mono">
+                            {prop.name}
+                          </TableCell>
+                          <TableCell className="font-mono text-blue-500">
+                            {prop.type}
+                          </TableCell>
+                          <TableCell className="font-mono text-green-500">
+                            {prop.defaultValue}
+                          </TableCell>
+                        </TableRow>
+                      ))}
+                    </TableBody>
+                  </Table>
+                  {(!widget.properties || widget.properties.length === 0) && (
+                    <p className="text-center text-muted-foreground mt-4">
+                      No properties defined for this widget.
+                    </p>
+                  )}
+                </TabsContent>
+              </Tabs>
             </div>
           </ResizablePanel>
         </ResizablePanelGroup>

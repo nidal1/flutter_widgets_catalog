@@ -10,7 +10,7 @@ const CodePreview = ({ widgetName }: CodePreviewProps) => {
   return (
     <div className="w-full h-full border rounded-md relative overflow-hidden">
       <iframe
-        src={`/flutter_preview/index.html?example=${exampleKey}`}
+        src={`/flutter_preview/build/web/index.html?example=${exampleKey}`}
         className="w-full h-full border-none outline-none "
         title={`${widgetName} Preview`}
       />
