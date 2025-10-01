@@ -76,7 +76,7 @@ final Map<String, WidgetBuilder> examples = {
   "outlinedbutton": (context) => const OutlinedButtonExample(),
   "textbutton": (context) => const TextButtonExample(),
   "iconbutton": (context) => const IconButtonExample(),
-  "floatingactionbutton": (context) => const FloatingActionButtonExample(),
+  "floatingactionbuttonfab": (context) => const FloatingActionButtonExample(),
 
   // Menus & Popups
   "alertdialog": (context) => const AlertDialogExample(),
@@ -93,8 +93,9 @@ final Map<String, WidgetBuilder> examples = {
   "chip": (context) => const ChipExample(),
   "circularprogressindicator": (context) =>
       const CircularProgressIndicatorExample(),
-  "textfield": (context) => const TextFieldExample(),
-  "textformfield": (context) => const TextFormFieldExample(),
+  "textfield": (context) => const TextFieldExample(), // This was correct
+  "textformfield": (context) =>
+      const TextFormFieldExample(), // This was correct
   "inputdecoration": (context) => const InputDecorationExample(),
   "form": (context) => const FormExample(),
 

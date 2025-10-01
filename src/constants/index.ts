@@ -16,6 +16,7 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -35,6 +36,7 @@ class MyApp extends StatelessWidget {
       { name: 'drawer', type: 'Widget', defaultValue: 'null' },
       { name: 'backgroundColor', type: 'Color', defaultValue: 'null' },
     ],
+    id: 'scaffold',
   },
   {
     name: 'AppBar',
@@ -49,6 +51,7 @@ void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
+
 
   @override
   Widget build(BuildContext context) {
@@ -78,6 +81,7 @@ class MyApp extends StatelessWidget {
       { name: 'elevation', type: 'double', defaultValue: '4.0' },
       { name: 'backgroundColor', type: 'Color', defaultValue: 'null' },
     ],
+    id: 'appBar',
   },
   {
     name: 'SliverAppBar',
@@ -92,6 +96,7 @@ void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
+
 
   @override
   Widget build(BuildContext context) {
@@ -122,6 +127,7 @@ class MyApp extends StatelessWidget {
       { name: 'floating', type: 'bool', defaultValue: 'false' },
       { name: 'snap', type: 'bool', defaultValue: 'false' },
     ],
+    id: 'sliverAppBar',
   },
   {
     name: 'Drawer',
@@ -136,6 +142,7 @@ void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
+
 
   @override
   Widget build(BuildContext context) {
@@ -171,6 +178,7 @@ class MyApp extends StatelessWidget {
       { name: 'elevation', type: 'double', defaultValue: '16.0' },
       { name: 'width', type: 'double', defaultValue: '304.0' },
     ],
+    id: 'drawer',
   },
   {
     name: 'BottomNavigationBar',
@@ -186,6 +194,7 @@ void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
+
 
   @override
   Widget build(BuildContext context) {
@@ -223,6 +232,7 @@ class MyApp extends StatelessWidget {
       { name: 'currentIndex', type: 'int', defaultValue: '0' },
       { name: 'elevation', type: 'double', defaultValue: '8.0' },
     ],
+    id: 'bottomNavigationBar',
   },
   {
     name: 'MaterialApp',
@@ -255,6 +265,7 @@ void main() {
         defaultValue: '{}',
       },
     ],
+    id: 'materialApp',
   },
   {
     name: 'Container',
@@ -289,6 +300,7 @@ void main() => runApp(
       { name: 'padding', type: 'EdgeInsetsGeometry', defaultValue: 'null' },
       { name: 'margin', type: 'EdgeInsetsGeometry', defaultValue: 'null' },
     ],
+    id: 'container',
   },
   {
     name: 'Padding',
@@ -317,6 +329,7 @@ void main() => runApp(
       { name: 'padding', type: 'EdgeInsetsGeometry', defaultValue: 'required' },
       { name: 'child', type: 'Widget', defaultValue: 'null' },
     ],
+    id: 'padding',
   },
   {
     name: 'Center',
@@ -340,6 +353,7 @@ void main() => runApp(
       { name: 'widthFactor', type: 'double', defaultValue: 'null' },
       { name: 'heightFactor', type: 'double', defaultValue: 'null' },
     ],
+    id: 'center',
   },
   {
     name: 'SizedBox',
@@ -370,6 +384,7 @@ void main() => runApp(
       { name: 'height', type: 'double', defaultValue: 'null' },
       { name: 'child', type: 'Widget', defaultValue: 'null' },
     ],
+    id: 'sizedBox',
   },
   {
     name: 'Row',
@@ -417,6 +432,7 @@ void main() => runApp(
         defaultValue: 'MainAxisSize.max',
       },
     ],
+    id: 'row',
   },
   {
     name: 'Column',
@@ -464,6 +480,7 @@ void main() => runApp(
         defaultValue: 'MainAxisSize.max',
       },
     ],
+    id: 'column',
   },
   {
     name: 'Stack',
@@ -501,8 +518,10 @@ void main() => runApp(
         type: 'AlignmentGeometry',
         defaultValue: 'AlignmentDirectional.topStart',
       },
+
       { name: 'fit', type: 'StackFit', defaultValue: 'StackFit.loose' },
     ],
+    id: 'stack',
   },
   {
     name: 'Expanded',
@@ -531,6 +550,7 @@ void main() => runApp(
       { name: 'flex', type: 'int', defaultValue: '1' },
       { name: 'child', type: 'Widget', defaultValue: 'required' },
     ],
+    id: 'expanded',
   },
 
   // 2. Buttons & Actions
@@ -542,6 +562,7 @@ void main() => runApp(
       'https://api.flutter.dev/flutter/material/ElevatedButton-class.html',
     code: `
 import 'package:flutter/material.dart';
+
 
 void main() => runApp(
   MaterialApp(
@@ -560,6 +581,7 @@ void main() => runApp(
       { name: 'child', type: 'Widget', defaultValue: 'required' },
       { name: 'style', type: 'ButtonStyle', defaultValue: 'null' },
     ],
+    id: 'elevatedButton',
   },
   {
     name: 'FilledButton',
@@ -569,6 +591,7 @@ void main() => runApp(
     docUrl: 'https://api.flutter.dev/flutter/material/FilledButton-class.html',
     code: `
 import 'package:flutter/material.dart';
+
 
 void main() => runApp(
   MaterialApp(
@@ -587,6 +610,7 @@ void main() => runApp(
       { name: 'child', type: 'Widget', defaultValue: 'required' },
       { name: 'style', type: 'ButtonStyle', defaultValue: 'null' },
     ],
+    id: 'filledButton',
   },
   {
     name: 'OutlinedButton',
@@ -597,6 +621,7 @@ void main() => runApp(
       'https://api.flutter.dev/flutter/material/OutlinedButton-class.html',
     code: `
 import 'package:flutter/material.dart';
+
 
 void main() => runApp(
   MaterialApp(
@@ -615,6 +640,7 @@ void main() => runApp(
       { name: 'child', type: 'Widget', defaultValue: 'required' },
       { name: 'style', type: 'ButtonStyle', defaultValue: 'null' },
     ],
+    id: 'outlinedButton',
   },
   {
     name: 'TextButton',
@@ -624,6 +650,7 @@ void main() => runApp(
     docUrl: 'https://api.flutter.dev/flutter/material/TextButton-class.html',
     code: `
 import 'package:flutter/material.dart';
+
 
 void main() => runApp(
   MaterialApp(
@@ -642,6 +669,7 @@ void main() => runApp(
       { name: 'child', type: 'Widget', defaultValue: 'required' },
       { name: 'style', type: 'ButtonStyle', defaultValue: 'null' },
     ],
+    id: 'textButton',
   },
   {
     name: 'IconButton',
@@ -651,6 +679,7 @@ void main() => runApp(
     docUrl: 'https://api.flutter.dev/flutter/material/IconButton-class.html',
     code: `
 import 'package:flutter/material.dart';
+
 
 void main() => runApp(
   MaterialApp(
@@ -671,6 +700,7 @@ void main() => runApp(
       { name: 'iconSize', type: 'double', defaultValue: '24.0' },
       { name: 'tooltip', type: 'String', defaultValue: 'null' },
     ],
+    id: 'iconButton',
   },
   {
     name: 'FloatingActionButton (FAB)',
@@ -681,6 +711,7 @@ void main() => runApp(
       'https://api.flutter.dev/flutter/material/FloatingActionButton-class.html',
     code: `
 import 'package:flutter/material.dart';
+
 
 void main() => runApp(
   MaterialApp(
@@ -700,6 +731,7 @@ void main() => runApp(
       { name: 'tooltip', type: 'String', defaultValue: 'null' },
       { name: 'backgroundColor', type: 'Color', defaultValue: 'null' },
     ],
+    id: 'floatingActionButtonFAB',
   },
 
   // Menus & Popups
@@ -711,10 +743,12 @@ void main() => runApp(
     code: `
 import 'package:flutter/material.dart';
 
+
 void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
+
 
   @override
   Widget build(BuildContext context) {
@@ -752,6 +786,7 @@ class MyApp extends StatelessWidget {
       { name: 'actions', type: 'List<Widget>', defaultValue: 'null' },
       { name: 'elevation', type: 'double', defaultValue: '24.0' },
     ],
+    id: 'alertDialog',
   },
   {
     name: 'PopupMenuButton',
@@ -762,6 +797,7 @@ class MyApp extends StatelessWidget {
       'https://api.flutter.dev/flutter/material/PopupMenuButton-class.html',
     code: `
 import 'package:flutter/material.dart';
+
 
 void main() => runApp(
   MaterialApp(
@@ -799,8 +835,10 @@ void main() => runApp(
         type: 'PopupMenuItemSelected<T>',
         defaultValue: 'null',
       },
+
       { name: 'icon', type: 'Widget', defaultValue: 'null' },
     ],
+    id: 'popupMenuButton',
   },
   {
     name: 'DropdownButton',
@@ -811,6 +849,7 @@ void main() => runApp(
       'https://api.flutter.dev/flutter/material/DropdownButton-class.html',
     code: `
 import 'package:flutter/material.dart';
+
 
 void main() => runApp(
   MaterialApp(
@@ -841,6 +880,7 @@ void main() => runApp(
       { name: 'onChanged', type: 'ValueChanged<T?>', defaultValue: 'required' },
       { name: 'hint', type: 'Widget', defaultValue: 'null' },
     ],
+    id: 'dropdownButton',
   },
   {
     name: 'SnackBar',
@@ -851,10 +891,12 @@ void main() => runApp(
     code: `
 import 'package:flutter/material.dart';
 
+
 void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
+
 
   @override
   Widget build(BuildContext context) {
@@ -880,6 +922,7 @@ class MyApp extends StatelessWidget {
       { name: 'action', type: 'SnackBarAction', defaultValue: 'null' },
       { name: 'duration', type: 'Duration', defaultValue: '4 seconds' },
     ],
+    id: 'snackBar',
   },
   {
     name: 'Tooltip',
@@ -889,6 +932,7 @@ class MyApp extends StatelessWidget {
     docUrl: 'https://api.flutter.dev/flutter/material/Tooltip-class.html',
     code: `
 import 'package:flutter/material.dart';
+
 
 void main() => runApp(
   const MaterialApp(
@@ -907,6 +951,7 @@ void main() => runApp(
       { name: 'child', type: 'Widget', defaultValue: 'null' },
       { name: 'height', type: 'double', defaultValue: '32.0' },
     ],
+    id: 'tooltip',
   },
 
   // 3. Data Display & Input
@@ -915,6 +960,7 @@ void main() => runApp(
     description: 'A run of text with a single style.',
     category: 'Data Display',
     docUrl: 'https://api.flutter.dev/flutter/widgets/Text-class.html',
+
     code: `
 import 'package:flutter/material.dart';
 
@@ -936,6 +982,7 @@ void main() => runApp(
       { name: 'textAlign', type: 'TextAlign', defaultValue: 'null' },
       { name: 'maxLines', type: 'int', defaultValue: 'null' },
     ],
+    id: 'text',
   },
   {
     name: 'Icon',
@@ -963,6 +1010,7 @@ void main() => runApp(
       { name: 'size', type: 'double', defaultValue: '24.0' },
       { name: 'color', type: 'Color', defaultValue: 'null' },
     ],
+    id: 'icon',
   },
   {
     name: 'Image',
@@ -989,6 +1037,7 @@ void main() => runApp(
       { name: 'height', type: 'double', defaultValue: 'null' },
       { name: 'fit', type: 'BoxFit', defaultValue: 'null' },
     ],
+    id: 'image',
   },
   {
     name: 'Card',
@@ -1024,6 +1073,7 @@ void main() => runApp(
         defaultValue: 'RoundedRectangleBorder',
       },
     ],
+    id: 'card',
   },
   {
     name: 'Chip',
@@ -1055,6 +1105,7 @@ void main() => runApp(
       { name: 'backgroundColor', type: 'Color', defaultValue: 'null' },
       { name: 'onDeleted', type: 'VoidCallback', defaultValue: 'null' },
     ],
+    id: 'chip',
   },
 
   {
@@ -1081,6 +1132,7 @@ void main() => runApp(
       { name: 'backgroundColor', type: 'Color', defaultValue: 'null' },
       { name: 'strokeWidth', type: 'double', defaultValue: '4.0' },
     ],
+    id: 'circularProgressIndicator',
   },
   {
     name: 'TextField',
@@ -1119,6 +1171,7 @@ void main() => runApp(
       { name: 'keyboardType', type: 'TextInputType', defaultValue: 'null' },
       { name: 'obscureText', type: 'bool', defaultValue: 'false' },
     ],
+    id: 'textField',
   },
   {
     name: 'TextFormField',
@@ -1167,6 +1220,7 @@ void main() => runApp(
         defaultValue: 'null',
       },
     ],
+    id: 'textFormField',
   },
   {
     name: 'InputDecoration',
@@ -1200,6 +1254,7 @@ void main() => runApp(
       { name: 'hintText', type: 'String', defaultValue: 'null' },
       { name: 'border', type: 'InputBorder', defaultValue: 'null' },
     ],
+    id: 'inputDecoration',
   },
   {
     name: 'Form',
@@ -1259,6 +1314,7 @@ class _MyCustomFormState extends State<MyCustomForm> {
       { name: 'key', type: 'GlobalKey<FormState>', defaultValue: 'null' },
       { name: 'child', type: 'Widget', defaultValue: 'required' },
     ],
+    id: 'form',
   },
   // 4. Lists Views & Slivers
   {
@@ -1291,6 +1347,7 @@ void main() => runApp(
       { name: 'scrollDirection', type: 'Axis', defaultValue: 'Axis.vertical' },
       { name: 'itemExtent', type: 'double', defaultValue: 'null' },
     ],
+    id: 'listView',
   },
   {
     name: 'GridView',
@@ -1329,6 +1386,7 @@ void main() => runApp(
       },
       { name: 'scrollDirection', type: 'Axis', defaultValue: 'Axis.vertical' },
     ],
+    id: 'gridView',
   },
   {
     name: 'CustomScrollView',
@@ -1369,6 +1427,7 @@ void main() => runApp(
       },
       { name: 'scrollDirection', type: 'Axis', defaultValue: 'Axis.vertical' },
     ],
+    id: 'customScrollView',
   },
   {
     name: 'SliverList',
@@ -1410,6 +1469,7 @@ void main() => runApp(
         defaultValue: 'required',
       },
     ],
+    id: 'sliverList',
   },
   {
     name: 'SliverGrid',
@@ -1459,6 +1519,7 @@ void main() => runApp(
         defaultValue: 'required',
       },
     ],
+    id: 'sliverGrid',
   },
 
   // 5. Theming & Effects
@@ -1491,6 +1552,7 @@ void main() => runApp(
       { name: 'data', type: 'ThemeData', defaultValue: 'required' },
       { name: 'child', type: 'Widget', defaultValue: 'required' },
     ],
+    id: 'theme',
   },
   {
     name: 'ThemeData',
@@ -1524,6 +1586,7 @@ void main() => runApp(
       { name: 'useMaterial3', type: 'bool', defaultValue: 'false' },
       { name: 'textTheme', type: 'TextTheme', defaultValue: 'null' },
     ],
+    id: 'themeData',
   },
   {
     name: 'MediaQuery',
@@ -1538,6 +1601,7 @@ void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
+
 
   @override
   Widget build(BuildContext context) {
@@ -1559,6 +1623,7 @@ class MyApp extends StatelessWidget {
       { name: 'data', type: 'MediaQueryData', defaultValue: 'required' },
       { name: 'child', type: 'Widget', defaultValue: 'required' },
     ],
+    id: 'mediaQuery',
   },
   {
     name: 'ColorScheme',
@@ -1594,6 +1659,7 @@ void main() => runApp(
       { name: 'background', type: 'Color', defaultValue: 'required' },
       { name: 'brightness', type: 'Brightness', defaultValue: 'required' },
     ],
+    id: 'colorScheme',
   },
   {
     name: 'BackdropFilter',
@@ -1634,6 +1700,7 @@ void main() => runApp(
       { name: 'filter', type: 'ImageFilter', defaultValue: 'required' },
       { name: 'child', type: 'Widget', defaultValue: 'null' },
     ],
+    id: 'backdropFilter',
   },
   {
     name: 'BoxShadow',
@@ -1674,6 +1741,7 @@ void main() => runApp(
       { name: 'blurRadius', type: 'double', defaultValue: '0.0' },
       { name: 'spreadRadius', type: 'double', defaultValue: '0.0' },
     ],
+    id: 'boxShadow',
   },
   {
     name: 'Opacity',
@@ -1699,6 +1767,7 @@ void main() => runApp(
       { name: 'opacity', type: 'double', defaultValue: 'required' },
       { name: 'child', type: 'Widget', defaultValue: 'null' },
     ],
+    id: 'opacity',
   },
   {
     name: 'Transform',
@@ -1731,25 +1800,26 @@ void main() => runApp(
       { name: 'alignment', type: 'AlignmentGeometry', defaultValue: 'null' },
       { name: 'child', type: 'Widget', defaultValue: 'null' },
     ],
+    id: 'transform',
   },
 ];
 
 const categories = [
   'All',
-  'Structure & Layout',
-  'Buttons & Actions',
-  'Menus & Popups',
-  'Data Display & Input',
-  'Lists Views & Slivers',
-  'Theming & Effects',
+  'StructureAndLayout',
+  'ButtonsAndActions',
+  'MenusAndPopups',
+  'DataDisplayAndInput',
+  'ListViewsAndSlivers',
+  'ThemingAndEffects',
 ];
 
 const categoryMap: Record<string, string[]> = {
-  'Structure & Layout': ['App Structure', 'Container & Sizing'],
-  'Buttons & Actions': ['Standard Buttons'],
-  'Menus & Popups': ['Menus & Popups'],
-  'Data Display & Input': ['Data Display', 'Input Fields', 'Selection'],
-  'Lists Views & Slivers': ['List Views', 'Slivers'],
-  'Theming & Effects': ['Theming', 'Effects'],
+  StructureAndLayout: ['App Structure', 'Container & Sizing'],
+  ButtonsAndActions: ['Standard Buttons'],
+  MenusAndPopups: ['Menus & Popups'],
+  DataDisplayAndInput: ['Data Display', 'Input Fields', 'Selection'],
+  ListViewsAndSlivers: ['List Views', 'Slivers'],
+  ThemingAndEffects: ['Theming', 'Effects'],
 };
 export { widgets, categories, categoryMap };

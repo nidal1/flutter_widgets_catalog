@@ -1,5 +1,6 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
 import { ExternalLinkIcon } from 'lucide-react';
 import {
   Card,
@@ -51,23 +52,36 @@ interface WidgetCardProps {
       type: string;
       defaultValue: string;
     }[];
+    id: string;
   };
   editorTheme: string;
+  isOpen: boolean;
+  onOpenChange: (open: boolean) => void;
 }
 
-const WidgetCard = ({ widget, editorTheme }: WidgetCardProps) => {
+const WidgetCard = ({
+  widget,
+  editorTheme,
+  isOpen,
+  onOpenChange,
+}: WidgetCardProps) => {
+  const t = useTranslations(`Widgets.${widget.id}`);
+  const tShared = useTranslations();
+
   return (
-    <Sheet key={widget.name}>
+    <Sheet key={widget.name} open={isOpen} onOpenChange={onOpenChange}>
       <SheetTrigger asChild>
-        <Card className="p-3 cursor-pointer transition-all hover:border-blue-500 dark:hover:border-blue-500">
-          <CardHeader className="px-0 flex flex-row items-start justify-between gap-4">
-            <div className="flex flex-wrap flex-col gap-1.5">
-              <CardTitle className="flex flex-col flex-wrap gap-2">
-                {widget.name}
-                <Badge variant="outline" className="text-[10px]">
-                  {widget.category}
-                </Badge>
-              </CardTitle>
+        <Card className="group p-4 cursor-pointer transition-all duration-300 ease-in-out hover:shadow-lg hover:-translate-y-1 bg-white dark:bg-gray-900/50 dark:hover:bg-gray-800/60">
+          <CardHeader className="p-0 flex flex-row items-start justify-between gap-4">
+            <div className="flex-1">
+              <div className="flex items-center gap-2 mb-1">
+                <CardTitle className="text-base font-semibold">
+                  {t('name')}
+                </CardTitle>
+              </div>
+              <Badge variant="secondary" className="text-[10px] font-normal">
+                {t('category')}
+              </Badge>
             </div>
             <TooltipProvider>
               <Tooltip>
@@ -76,27 +90,29 @@ const WidgetCard = ({ widget, editorTheme }: WidgetCardProps) => {
                     href={widget.docUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-2 rounded-md hover:bg-accent"
+                    className="p-1.5 rounded-md text-muted-foreground hover:text-foreground hover:bg-accent transition-colors"
                     onClick={(e) => e.stopPropagation()}
                   >
                     <ExternalLinkIcon className="h-4 w-4" />
                   </a>
                 </TooltipTrigger>
                 <TooltipContent>
-                  <p>Official Documentation</p>
+                  <p>{tShared('WidgetCard.docsTooltip')}</p>
                 </TooltipContent>
               </Tooltip>
             </TooltipProvider>
           </CardHeader>
-          <CardDescription>{widget.description}</CardDescription>
+          <CardDescription className="mt-2 text-sm">
+            {t('description')}
+          </CardDescription>
         </Card>
       </SheetTrigger>
       <SheetContent className="w-full max-w-full sm:max-w-full md:max-w-[90vw] lg:max-w-[80vw] p-0">
         <SheetHeader>
           <div className="flex items-center justify-between p-4 border-b">
             <div>
-              <SheetTitle>{widget.name}</SheetTitle>
-              <SheetDescription>{widget.description}</SheetDescription>
+              <SheetTitle>{t('name')}</SheetTitle>
+              <SheetDescription>{t('description')}</SheetDescription>
             </div>
           </div>
         </SheetHeader>
@@ -105,8 +121,10 @@ const WidgetCard = ({ widget, editorTheme }: WidgetCardProps) => {
           className="h-[calc(100vh-80px)]"
         >
           <ResizablePanel defaultSize={50}>
-            <div className="flex flex-col h-full pt-4 px-4 gap-2">
-              <h3 className="font-semibold mb-2 min-h-[36px]">Flutter Code</h3>
+            <div className="flex flex-col h-full p-4 gap-2">
+              <h3 className="font-semibold mb-2">
+                {tShared('CodeEditor.title')}
+              </h3>
               <div className="max-h-full h-full">
                 <CodeEditor
                   code={widget.code || '// No code example available.'}
@@ -117,20 +135,18 @@ const WidgetCard = ({ widget, editorTheme }: WidgetCardProps) => {
           </ResizablePanel>
           <ResizableHandle withHandle />
           <ResizablePanel defaultSize={50}>
-            <div className="h-full  pt-4 px-4 flex flex-col">
+            <div className="h-full p-4 flex flex-col">
               <Tabs defaultValue="preview" className="h-full flex flex-col">
                 <TabsList className="mb-2">
-                  <TabsTrigger value="preview">Live Preview</TabsTrigger>
-                  <TabsTrigger value="properties">Properties</TabsTrigger>
+                  <TabsTrigger value="preview">
+                    {tShared('CodePreview.title')}
+                  </TabsTrigger>
+                  <TabsTrigger value="properties">
+                    {tShared('WidgetProperties.title')}
+                  </TabsTrigger>
                 </TabsList>
                 <TabsContent value="preview" className="flex-grow">
-                  <CodePreview
-                    widgetName={
-                      widget.name !== 'FloatingActionButton (FAB)'
-                        ? widget.name
-                        : 'floatingactionbutton'
-                    }
-                  />
+                  <CodePreview widgetId={widget.id} />
                 </TabsContent>
                 <TabsContent
                   value="properties"
@@ -139,9 +155,15 @@ const WidgetCard = ({ widget, editorTheme }: WidgetCardProps) => {
                   <Table>
                     <TableHeader>
                       <TableRow>
-                        <TableHead>Property</TableHead>
-                        <TableHead>Type</TableHead>
-                        <TableHead>Default Value</TableHead>
+                        <TableHead>
+                          {tShared('WidgetProperties.property')}
+                        </TableHead>
+                        <TableHead>
+                          {tShared('WidgetProperties.type')}
+                        </TableHead>
+                        <TableHead>
+                          {tShared('WidgetProperties.defaultValue')}
+                        </TableHead>
                       </TableRow>
                     </TableHeader>
                     <TableBody>
@@ -162,7 +184,7 @@ const WidgetCard = ({ widget, editorTheme }: WidgetCardProps) => {
                   </Table>
                   {(!widget.properties || widget.properties.length === 0) && (
                     <p className="text-center text-muted-foreground mt-4">
-                      No properties defined for this widget.
+                      {tShared('WidgetProperties.noProperties')}
                     </p>
                   )}
                 </TabsContent>

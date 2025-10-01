@@ -1,0 +1,282 @@
+{
+  "Navbar": {
+    "title": "كتالوج ودجات فلاتر",
+    "english": "الإنجليزية",
+    "arabic": "العربية"
+  },
+  "HeroSection": {
+    "title": "كتالوج ودجات فلاتر",
+    "subtitle": "مرجع تفاعلي وشامل لودجات فلاتر، مع <br /> معاينات حية، وأمثلة أكواد، ونسخ فوري."
+  },
+  "Search": {
+    "placeholder": "ابحث عن ودجت...",
+    "noResults": "لم يتم العثور على نتائج."
+  },
+  "Categories": {
+    "All": "الكل",
+    "StructureAndLayout": "الهيكلة والتخطيط",
+    "ButtonsAndActions": "الأزرار والإجراءات",
+    "MenusAndPopups": "القوائم والنوافذ المنبثقة",
+    "DataDisplayAndInput": "عرض البيانات والإدخال",
+    "ListViewsAndSlivers": "قوائم التمرير وSlivers",
+    "ThemingAndEffects": "التصميم والتأثيرات"
+  },
+  "WidgetProperties": {
+    "title": "الخصائص",
+    "property": "الخاصية",
+    "type": "النوع",
+    "defaultValue": "القيمة الافتراضية",
+    "noProperties": "لا توجد خصائص محددة لهذا الودجت."
+  },
+  "WidgetCard": {
+    "docsTooltip": "الوثائق الرسمية"
+  },
+  "CodePreview": {
+    "title": "معاينة حية"
+  },
+  "CodeEditor": {
+    "title": "كود فلاتر"
+  },
+  "Widgets": {
+    "scaffold": {
+      "name": "Scaffold",
+      "description": "يطبق الهيكل التخطيطي البصري الأساسي لـ Material Design.",
+      "category": "هيكل التطبيق"
+    },
+    "appBar": {
+      "name": "AppBar",
+      "description": "شريط تطبيقات Material Design يستخدم عادةً كابن لـ Scaffold.",
+      "category": "هيكل التطبيق"
+    },
+    "sliverAppBar": {
+      "name": "SliverAppBar",
+      "description": "شريط تطبيقات Material Design يتكامل مع CustomScrollView.",
+      "category": "هيكل التطبيق"
+    },
+    "drawer": {
+      "name": "Drawer",
+      "description": "لوحة Material Design تنزلق أفقيًا من حافة Scaffold.",
+      "category": "هيكل التطبيق"
+    },
+    "bottomNavigationBar": {
+      "name": "BottomNavigationBar",
+      "description": "ودجت Material Design يعرض صفًا من عناصر التنقل في أسفل الشاشة.",
+      "category": "هيكل التطبيق"
+    },
+    "materialApp": {
+      "name": "MaterialApp",
+      "description": "ودجت ملائم يلتف حول عدد من الودجات المطلوبة بشكل شائع لتطبيقات Material Design.",
+      "category": "هيكل التطبيق"
+    },
+    "container": {
+      "name": "Container",
+      "description": "ودجت ملائم يجمع بين ودجات الرسم والتمركز والتحجيم الشائعة.",
+      "category": "الحاويات والتحجيم"
+    },
+    "padding": {
+      "name": "Padding",
+      "description": "ودجت يقوم بإدراج مسافة داخلية لابنه.",
+      "category": "الحاويات والتحجيم"
+    },
+    "center": {
+      "name": "Center",
+      "description": "ودجت يقوم بتوسيط ابنه داخل نفسه.",
+      "category": "الحاويات والتحجيم"
+    },
+    "sizedBox": {
+      "name": "SizedBox",
+      "description": "صندوق بحجم محدد.",
+      "category": "الحاويات والتحجيم"
+    },
+    "row": {
+      "name": "Row",
+      "description": "ودجت يعرض أبناءه في مصفوفة أفقية.",
+      "category": "الحاويات والتحجيم"
+    },
+    "column": {
+      "name": "Column",
+      "description": "ودجت يعرض أبناءه في مصفوفة عمودية.",
+      "category": "الحاويات والتحجيم"
+    },
+    "stack": {
+      "name": "Stack",
+      "description": "ودجت يضع أبناءه بالنسبة لحواف صندوقه.",
+      "category": "الحاويات والتحجيم"
+    },
+    "expanded": {
+      "name": "Expanded",
+      "description": "ودجت يوسع ابنًا لـ Row أو Column أو Flex.",
+      "category": "الحاويات والتحجيم"
+    },
+    "elevatedButton": {
+      "name": "ElevatedButton",
+      "description": "زر مرتفع من Material Design.",
+      "category": "الأزرار القياسية"
+    },
+    "filledButton": {
+      "name": "FilledButton",
+      "description": "زر مملوء من Material Design، وهو زر محتوى بلون خلفية صلب.",
+      "category": "الأزرار القياسية"
+    },
+    "outlinedButton": {
+      "name": "OutlinedButton",
+      "description": "زر Material Design بإطار رفيع وبدون لون تعبئة.",
+      "category": "الأزرار القياسية"
+    },
+    "textButton": {
+      "name": "TextButton",
+      "description": "زر Material Design يبدو كقطعة نصية مسطحة.",
+      "category": "الأزرار القياسية"
+    },
+    "iconButton": {
+      "name": "IconButton",
+      "description": "صورة مطبوعة على ودجت Material تتفاعل مع اللمسات.",
+      "category": "الأزرار القياسية"
+    },
+    "floatingActionButtonFAB": {
+      "name": "FloatingActionButton (FAB)",
+      "description": "زر أيقونة دائري يطفو فوق المحتوى للترويج لإجراء أساسي أو الأكثر شيوعًا في التطبيق.",
+      "category": "الأزرار القياسية"
+    },
+    "alertDialog": {
+      "name": "AlertDialog",
+      "description": "مربع حوار تنبيه من Material Design.",
+      "category": "القوائم والنوافذ المنبثقة"
+    },
+    "popupMenuButton": {
+      "name": "PopupMenuButton",
+      "description": "يعرض قائمة عند الضغط عليه ويستدعي onSelected عند إغلاق القائمة بسبب تحديد عنصر.",
+      "category": "القوائم والنوافذ المنبثقة"
+    },
+    "dropdownButton": {
+      "name": "DropdownButton",
+      "description": "زر يعرض عند الضغط عليه قائمة من العناصر للاختيار من بينها.",
+      "category": "القوائم والنوافذ المنبثقة"
+    },
+    "snackBar": {
+      "name": "SnackBar",
+      "description": "رسالة خفيفة مع إجراء اختياري تظهر لفترة وجيزة في أسفل الشاشة.",
+      "category": "القوائم والنوافذ المنبثقة"
+    },
+    "tooltip": {
+      "name": "Tooltip",
+      "description": "تسمية نصية تظهر عندما يحوم المستخدم فوق ودجت أو يركز عليه أو يضغط عليه طويلاً.",
+      "category": "القوائم والنوافذ المنبثقة"
+    },
+    "text": {
+      "name": "Text",
+      "description": "سلسلة من النصوص بنمط واحد.",
+      "category": "عرض البيانات"
+    },
+    "icon": {
+      "name": "Icon",
+      "description": "ودجت أيقونة رسومية مرسومة من خط.",
+      "category": "عرض البيانات"
+    },
+    "image": {
+      "name": "Image",
+      "description": "ودجت يعرض صورة.",
+      "category": "عرض البيانات"
+    },
+    "card": {
+      "name": "Card",
+      "description": "بطاقة Material Design: لوحة بزوايا مستديرة قليلاً وظل ارتفاع.",
+      "category": "عرض البيانات"
+    },
+    "chip": {
+      "name": "Chip",
+      "description": "عنصر مدمج يمثل إدخالاً أو سمة أو إجراء.",
+      "category": "عرض البيانات"
+    },
+    "circularProgressIndicator": {
+      "name": "CircularProgressIndicator",
+      "description": "مؤشر تقدم دائري، يدور للإشارة إلى أن التطبيق مشغول.",
+      "category": "عرض البيانات"
+    },
+    "textField": {
+      "name": "TextField",
+      "description": "حقل إدخال نصي يسمح للمستخدمين بإدخال وتحرير النص.",
+      "category": "حقول الإدخال"
+    },
+    "textFormField": {
+      "name": "TextFormField",
+      "description": "حقل نصي (TextField) يتكامل مع نموذج (Form).",
+      "category": "حقول الإدخال"
+    },
+    "inputDecoration": {
+      "name": "InputDecoration",
+      "description": "الزخرفة المرئية لحقل نصي في Material Design، مثل التسميات والأيقونات والحدود.",
+      "category": "حقول الإدخال"
+    },
+    "form": {
+      "name": "Form",
+      "description": "حاوية اختيارية لتجميع والتحقق من صحة حقول نموذج متعددة.",
+      "category": "حقول الإدخال"
+    },
+    "listView": {
+      "name": "ListView",
+      "description": "قائمة قابلة للتمرير من الودجات مرتبة خطيًا.",
+      "category": "قوائم التمرير"
+    },
+    "gridView": {
+      "name": "GridView",
+      "description": "مصفوفة ثنائية الأبعاد قابلة للتمرير من الودجات.",
+      "category": "قوائم التمرير"
+    },
+    "customScrollView": {
+      "name": "CustomScrollView",
+      "description": "ScrollView ينشئ تأثيرات تمرير مخصصة باستخدام slivers.",
+      "category": "قوائم التمرير"
+    },
+    "sliverList": {
+      "name": "SliverList",
+      "description": "Sliver يضع عدة أبناء صندوقيين في مصفوفة خطية على طول المحور الرئيسي.",
+      "category": "Slivers"
+    },
+    "sliverGrid": {
+      "name": "SliverGrid",
+      "description": "Sliver يضع عدة أبناء صندوقيين في ترتيب ثنائي الأبعاد.",
+      "category": "Slivers"
+    },
+    "theme": {
+      "name": "Theme",
+      "description": "يطبق سمة على الودجات التابعة. تصف السمة الألوان والخيارات المطبعية للتطبيق.",
+      "category": "التصميم"
+    },
+    "themeData": {
+      "name": "ThemeData",
+      "description": "يحدد تكوين السمة المرئية العامة لـ MaterialApp أو شجرة ودجات فرعية.",
+      "category": "التصميم"
+    },
+    "mediaQuery": {
+      "name": "MediaQuery",
+      "description": "ينشئ شجرة فرعية يتم فيها حل استعلامات الوسائط إلى البيانات المحددة.",
+      "category": "التصميم"
+    },
+    "colorScheme": {
+      "name": "ColorScheme",
+      "description": "مجموعة من 30 لونًا بناءً على مواصفات Material يمكن استخدامها لتكوين خصائص الألوان لمعظم المكونات.",
+      "category": "التصميم"
+    },
+    "backdropFilter": {
+      "name": "BackdropFilter",
+      "description": "ودجت يطبق مرشحًا على المحتوى المرسوم الحالي ثم يرسم الابن.",
+      "category": "التأثيرات"
+    },
+    "boxShadow": {
+      "name": "BoxShadow",
+      "description": "ظل يلقيه صندوق. BoxShadow ليس ودجت ولكنه فئة تستخدم في BoxDecoration.",
+      "category": "التأثيرات"
+    },
+    "opacity": {
+      "name": "Opacity",
+      "description": "ودجت يجعل ابنه شفافًا جزئيًا.",
+      "category": "التأثيرات"
+    },
+    "transform": {
+      "name": "Transform",
+      "description": "ودجت يطبق تحويلًا منظوريًا على ابنه.",
+      "category": "التأثيرات"
+    }
+  }
+}

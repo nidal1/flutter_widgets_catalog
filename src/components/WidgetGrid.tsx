@@ -1,5 +1,7 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
+import { useSearchParams, useRouter } from 'next/navigation';
 import { useState, useEffect } from 'react';
 
 import { Button } from './ui/button';
@@ -11,6 +13,9 @@ import WidgetCard from './WidgetCard';
 const WidgetGrid = () => {
   const [activeCategory, setActiveCategory] = useState('All');
   const [editorTheme, setEditorTheme] = useState('light');
+  const searchParams = useSearchParams();
+  const t = useTranslations('Categories');
+  const router = useRouter();
 
   useEffect(() => {
     // Set the initial theme
@@ -57,6 +62,16 @@ const WidgetGrid = () => {
           categoryMap[activeCategory]?.includes(widget.category)
         );
 
+  const openWidgetId = searchParams.get('widget');
+
+  const handleSheetOpenChange = (isOpen: boolean, widgetId: string) => {
+    if (isOpen) {
+      router.push(`/?widget=${encodeURIComponent(widgetId)}`);
+    } else {
+      router.push('/');
+    }
+  };
+
   return (
     <Container className="py-10">
       {/* Category Tabs */}
@@ -64,13 +79,14 @@ const WidgetGrid = () => {
         {categories.map((category) => (
           <Button
             key={category}
-            variant={activeCategory === category ? 'default' : 'secondary'}
+            variant={activeCategory === category ? 'default' : 'outline'}
             onClick={() => setActiveCategory(category)}
-            className="flex items-center gap-2"
+            className="h-9 rounded-full px-4 text-sm transition-all duration-200 ease-in-out"
           >
-            {category}
+            {t(category)}
             <Badge
               variant={activeCategory === category ? 'secondary' : 'default'}
+              className="ml-2"
             >
               {categoryCounts[category] ?? 0}
             </Badge>
@@ -82,9 +98,11 @@ const WidgetGrid = () => {
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {filteredWidgets.map((widget) => (
           <WidgetCard
-            key={widget.name}
+            key={widget.id}
             widget={widget}
             editorTheme={editorTheme}
+            isOpen={openWidgetId === widget.id}
+            onOpenChange={(isOpen) => handleSheetOpenChange(isOpen, widget.id)}
           />
         ))}
       </div>

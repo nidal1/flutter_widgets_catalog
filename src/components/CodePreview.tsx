@@ -1,18 +1,16 @@
 'use client';
 
 interface CodePreviewProps {
-  widgetName: string;
+  widgetId: string;
 }
 
-const CodePreview = ({ widgetName }: CodePreviewProps) => {
-  const exampleKey = widgetName.toLowerCase().replace(/[^a-z0-9]/g, '');
-
+const CodePreview = ({ widgetId }: CodePreviewProps) => {
   return (
     <div className="w-full h-full border rounded-md relative overflow-hidden">
       <iframe
-        src={`/flutter_preview/build/web/index.html?example=${exampleKey}`}
+        src={`/flutter_preview/build/web/index.html?example=${widgetId}`}
         className="w-full h-full border-none outline-none "
-        title={`${widgetName} Preview`}
+        title={`${widgetId} Preview`}
       />
     </div>
   );
