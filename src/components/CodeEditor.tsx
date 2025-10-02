@@ -38,18 +38,21 @@ const CodeEditor = ({ code, theme }: CodeEditorProps) => {
         )}
         <span className="sr-only">Copy code</span>
       </Button>
-      <Editor
-        height="100%"
-        language="dart"
-        value={code}
-        theme={theme}
-        options={{
-          minimap: { enabled: false },
-          scrollBeyondLastLine: false,
-          fontSize: 14,
-          readOnly: true,
-        }}
-      />
+      <div dir="ltr" className="h-full w-full">
+        <Editor
+          height="100%"
+          width="100%"
+          language="dart"
+          value={code}
+          theme={theme}
+          options={{
+            minimap: { enabled: false },
+            scrollBeyondLastLine: false,
+            fontSize: 14,
+            readOnly: true,
+          }}
+        />
+      </div>
     </div>
   );
 };

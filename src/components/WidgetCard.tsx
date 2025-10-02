@@ -1,6 +1,6 @@
 'use client';
 
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import { ExternalLinkIcon } from 'lucide-react';
 import {
   Card,
@@ -118,7 +118,7 @@ const WidgetCard = ({
         </SheetHeader>
         <ResizablePanelGroup
           direction="horizontal"
-          className="h-[calc(100vh-80px)]"
+          className="h-[calc(100vh-80px)] "
         >
           <ResizablePanel defaultSize={50}>
             <div className="flex flex-col h-full p-4 gap-2">

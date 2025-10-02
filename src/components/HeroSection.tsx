@@ -12,10 +12,6 @@ const HeroSection = () => {
   // Calculate dynamic stats
   const numCategories = categories.filter((c) => c !== 'All').length;
   const numComponents = widgets.length;
-  const numVariants = widgets.reduce(
-    (acc, widget) => acc + (widget.properties?.length || 0),
-    0
-  );
 
   return (
     <Container className="py-10">
@@ -59,18 +55,6 @@ const HeroSection = () => {
               <br />
               <span className="text-sm font-medium text-muted-foreground">
                 {t('components')}
-              </span>
-            </div>
-          </Card>
-
-          <Card className="flex-1 max-w-[200px]">
-            <div className="text-center p-4">
-              <span className="text-3xl font-bold text-foreground">
-                {numVariants}
-              </span>
-              <br />
-              <span className="text-sm font-medium text-muted-foreground">
-                {t('variants')}
               </span>
             </div>
           </Card>

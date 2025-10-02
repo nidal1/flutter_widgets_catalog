@@ -8,8 +8,7 @@
     "title": "Flutter widgets catalog",
     "subtitle": "A comprehensive, interactive reference for Flutter widgets, with <br /> live previews, code examples, and instant copy functionality.",
     "categories": "Categories",
-    "components": "Components",
-    "variants": "Variants"
+    "components": "Components"
   },
   "Search": {
     "placeholder": "Search widgets...",

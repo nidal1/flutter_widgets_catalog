@@ -81,12 +81,11 @@ const WidgetGrid = () => {
             key={category}
             variant={activeCategory === category ? 'default' : 'outline'}
             onClick={() => setActiveCategory(category)}
-            className="h-9 rounded-full px-4 text-sm transition-all duration-200 ease-in-out"
+            className="flex items-center gap-2 h-9 rounded-full px-4 text-sm transition-all duration-200 ease-in-out"
           >
             {t(category)}
             <Badge
               variant={activeCategory === category ? 'secondary' : 'default'}
-              className="ml-2"
             >
               {categoryCounts[category] ?? 0}
             </Badge>
