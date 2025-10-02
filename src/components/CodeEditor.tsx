@@ -2,7 +2,7 @@
 
 import Editor from '@monaco-editor/react';
 import { CheckIcon, CopyIcon } from 'lucide-react';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Button } from './ui/button';
 
 interface CodeEditorProps {
@@ -13,15 +13,14 @@ interface CodeEditorProps {
 const CodeEditor = ({ code, theme }: CodeEditorProps) => {
   const [isCopied, setIsCopied] = useState(false);
 
-  const handleCopy = () => {
+  const handleCopy = React.useCallback(async () => {
     if (!code) return;
-    navigator.clipboard.writeText(code).then(() => {
-      setIsCopied(true);
-      setTimeout(() => {
-        setIsCopied(false);
-      }, 2000);
-    });
-  };
+    await navigator.clipboard.writeText(code);
+    setIsCopied(true);
+    setTimeout(() => {
+      setIsCopied(false);
+    }, 2000);
+  }, [code]);
 
   return (
     <div className="relative h-full rounded-md overflow-hidden border">

@@ -13,9 +13,29 @@ import {
 import { widgets } from '@/constants/index';
 import { useRouter, usePathname } from 'next/navigation';
 
+const SearchIcon = React.memo(() => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className="h-4 w-4 text-gray-500"
+  >
+    <path d="m21 21-6-6" />
+    <circle cx="10.5" cy="10.5" r="7.5" />
+  </svg>
+));
+SearchIcon.displayName = 'SearchIcon';
+
 export function SearchDialog() {
   const [open, setOpen] = React.useState(false);
   const router = useRouter();
+  const pathname = usePathname();
   const t = useTranslations();
 
   React.useEffect(() => {
@@ -30,16 +50,19 @@ export function SearchDialog() {
     return () => document.removeEventListener('keydown', down);
   }, []);
 
-  const runCommand = (command: () => unknown) => {
+  const runCommand = React.useCallback((command: () => unknown) => {
     setOpen(false);
     command();
-  };
+  }, []);
 
-  const handleSelect = (widgetId: string) => {
-    runCommand(() => {
-      router.push(`/?widget=${encodeURIComponent(widgetId)}`);
-    });
-  };
+  const handleSelect = React.useCallback(
+    (widgetId: string) => {
+      runCommand(() => {
+        router.push(`${pathname}?widget=${encodeURIComponent(widgetId)}`);
+      });
+    },
+    [runCommand, router, pathname]
+  );
 
   return (
     <>
@@ -48,21 +71,7 @@ export function SearchDialog() {
         className="relative mt-6 w-full max-w-md flex items-center justify-between gap-3 rounded-md border border-gray-300 bg-white px-4 py-2 text-left text-gray-500 shadow-sm ring-offset-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:ring-offset-gray-950"
       >
         <div className="flex items-center gap-2">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="h-4 w-4 text-gray-500"
-          >
-            <path d="m21 21-6-6" />
-            <circle cx="10.5" cy="10.5" r="7.5" />
-          </svg>
+          <SearchIcon />
           <span>{t('Search.placeholder')}</span>
         </div>
         <kbd className="pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground opacity-100">

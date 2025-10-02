@@ -6,12 +6,12 @@ import { categories, widgets } from '@/constants';
 import Container from './Container';
 import { SearchDialog } from './SearchDialog';
 
+// Calculate dynamic stats once
+const numCategories = categories.filter((c) => c !== 'All').length;
+const numComponents = widgets.length;
+
 const HeroSection = () => {
   const t = useTranslations('HeroSection');
-
-  // Calculate dynamic stats
-  const numCategories = categories.filter((c) => c !== 'All').length;
-  const numComponents = widgets.length;
 
   return (
     <Container className="py-10">

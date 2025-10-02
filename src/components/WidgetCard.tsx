@@ -37,8 +37,10 @@ import {
 } from '@/components/ui/table';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Badge } from './ui/badge';
-import CodeEditor from './CodeEditor';
+const CodeEditor = React.lazy(() => import('./CodeEditor'));
 import CodePreview from './CodePreview';
+import { useMediaQuery } from '@/hooks/use-media-query';
+import React from 'react';
 
 interface WidgetCardProps {
   widget: {
@@ -67,6 +69,7 @@ const WidgetCard = ({
 }: WidgetCardProps) => {
   const t = useTranslations(`Widgets.${widget.id}`);
   const tShared = useTranslations();
+  const isMobile = useMediaQuery('(max-width: 768px)');
 
   return (
     <Sheet key={widget.name} open={isOpen} onOpenChange={onOpenChange}>
@@ -117,34 +120,57 @@ const WidgetCard = ({
           </div>
         </SheetHeader>
         <ResizablePanelGroup
-          direction="horizontal"
-          className="h-[calc(100vh-80px)] "
+          direction={isMobile ? 'vertical' : 'horizontal'}
+          className="h-[calc(100vh-80px)]"
         >
+          {!isMobile && (
+            <>
+              <ResizablePanel defaultSize={50}>
+                <div className="flex flex-col h-full p-4 gap-2">
+                  <h3 className="font-semibold mb-2">
+                    {tShared('CodeEditor.title')}
+                  </h3>
+                  <div className="max-h-full h-full">
+                    <React.Suspense fallback={<>Loading editor...</>}>
+                      <CodeEditor // Added overflow-auto here
+                        code={widget.code || '// No code example available.'}
+                        theme={editorTheme}
+                      />
+                    </React.Suspense>
+                  </div>
+                </div>
+              </ResizablePanel>
+              <ResizableHandle withHandle />
+            </>
+          )}
           <ResizablePanel defaultSize={50}>
-            <div className="flex flex-col h-full p-4 gap-2">
-              <h3 className="font-semibold mb-2">
-                {tShared('CodeEditor.title')}
-              </h3>
-              <div className="max-h-full h-full">
-                <CodeEditor
-                  code={widget.code || '// No code example available.'}
-                  theme={editorTheme}
-                />
-              </div>
-            </div>
-          </ResizablePanel>
-          <ResizableHandle withHandle />
-          <ResizablePanel defaultSize={50}>
-            <div className="h-full p-4 flex flex-col">
+            <div className="h-full p-4 flex flex-col min-h-[528px]">
               <Tabs defaultValue="preview" className="h-full flex flex-col">
                 <TabsList className="mb-2">
                   <TabsTrigger value="preview">
                     {tShared('CodePreview.title')}
                   </TabsTrigger>
+                  {isMobile && (
+                    <TabsTrigger value="code">
+                      {tShared('CodeEditor.title')}
+                    </TabsTrigger>
+                  )}
                   <TabsTrigger value="properties">
                     {tShared('WidgetProperties.title')}
                   </TabsTrigger>
                 </TabsList>
+                {isMobile && (
+                  <TabsContent value="code" className="flex-grow">
+                    <div className="max-h-full h-full">
+                      <React.Suspense fallback={<>Loading editor...</>}>
+                        <CodeEditor // Added overflow-auto here
+                          code={widget.code || '// No code example available.'}
+                          theme={editorTheme}
+                        />
+                      </React.Suspense>
+                    </div>
+                  </TabsContent>
+                )}
                 <TabsContent value="preview" className="flex-grow">
                   <CodePreview widgetId={widget.id} />
                 </TabsContent>
@@ -197,4 +223,4 @@ const WidgetCard = ({
   );
 };
 
-export default WidgetCard;
+export default React.memo(WidgetCard);

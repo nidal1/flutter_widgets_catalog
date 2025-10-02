@@ -1,8 +1,8 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import { useSearchParams, useRouter } from 'next/navigation';
-import { useState, useEffect } from 'react';
+import { useSearchParams, useRouter, usePathname } from 'next/navigation';
+import { useState, useEffect, useMemo } from 'react';
 
 import { Button } from './ui/button';
 import Container from './Container';
@@ -15,6 +15,7 @@ const WidgetGrid = () => {
   const [editorTheme, setEditorTheme] = useState('light');
   const searchParams = useSearchParams();
   const t = useTranslations('Categories');
+  const pathname = usePathname();
   const router = useRouter();
 
   useEffect(() => {
@@ -44,16 +45,18 @@ const WidgetGrid = () => {
     return () => observer.disconnect();
   }, []);
 
-  const categoryCounts = categories.reduce((acc, category) => {
-    if (category === 'All') {
-      acc[category] = widgets.length;
-    } else {
-      acc[category] = widgets.filter((widget) =>
-        categoryMap[category]?.includes(widget.category)
-      ).length;
-    }
-    return acc;
-  }, {} as Record<string, number>);
+  const categoryCounts = useMemo(() => {
+    return categories.reduce((acc, category) => {
+      if (category === 'All') {
+        acc[category] = widgets.length;
+      } else {
+        acc[category] = widgets.filter((widget) =>
+          categoryMap[category]?.includes(widget.category)
+        ).length;
+      }
+      return acc;
+    }, {} as Record<string, number>);
+  }, []);
 
   const filteredWidgets =
     activeCategory === 'All'
@@ -66,9 +69,9 @@ const WidgetGrid = () => {
 
   const handleSheetOpenChange = (isOpen: boolean, widgetId: string) => {
     if (isOpen) {
-      router.push(`/?widget=${encodeURIComponent(widgetId)}`);
+      router.push(`${pathname}?widget=${encodeURIComponent(widgetId)}`);
     } else {
-      router.push('/');
+      router.push(pathname);
     }
   };
 

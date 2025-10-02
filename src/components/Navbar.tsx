@@ -1,8 +1,9 @@
 'use client';
 
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import { usePathname, useRouter } from 'next/navigation';
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import { useTheme } from '@/hooks/use-theme';
 import Container from './Container';
 import { GlobeIcon, MoonIcon, SearchIcon, SunIcon } from './icons';
 import { Button } from './ui/button';
@@ -15,41 +16,17 @@ import {
 } from '@/components/ui/dropdown-menu';
 
 export default function Navbar() {
-  const [theme, setTheme] = useState('light');
+  const { theme, toggleTheme } = useTheme();
   const t = useTranslations('Navbar');
   const router = useRouter();
   const pathname = usePathname();
-
-  useEffect(() => {
-    if (
-      localStorage.theme === 'dark' ||
-      (!('theme' in localStorage) &&
-        window.matchMedia('(prefers-color-scheme: dark)').matches)
-    ) {
-      document.documentElement.classList.add('dark');
-      setTheme('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-      setTheme('light');
-    }
-  }, []);
-
-  const toggleTheme = () => {
-    if (theme === 'light') {
-      localStorage.theme = 'dark';
-      document.documentElement.classList.add('dark');
-      setTheme('dark');
-    } else {
-      localStorage.theme = 'light';
-      document.documentElement.classList.remove('dark');
-      setTheme('light');
-    }
-  };
+  const currentLocale = useLocale();
 
   const handleLanguageChange = (locale: string) => {
-    // The pathname will include the current locale, so we need to remove it
-    // before appending the new one.
-    const newPath = `/${locale}${pathname.substring(3)}`;
+    if (locale === currentLocale) return;
+    // The pathname will include the current locale, e.g., /en/about or /ar/about
+    // We need to replace the current locale with the new one.
+    const newPath = pathname.replace(`/${currentLocale}`, `/${locale}`);
     router.replace(newPath);
   };
 
