@@ -20,11 +20,6 @@ const cairo = Cairo({
   variable: '--font-cairo',
 });
 
-export const metadata: Metadata = {
-  title: 'Flutter Widgets Catalog',
-  description: 'An interactive catalog of Flutter widgets.',
-};
-
 export default async function LocaleLayout({
   children,
   params,
@@ -32,18 +27,34 @@ export default async function LocaleLayout({
   children: React.ReactNode;
   params: { locale: string };
 }>) {
-  const { locale } = await params;
   let messages;
+  const { locale } = await params;
+  if (!locale) {
+    throw new Error('Locale not found');
+  }
+
+  const isAr = locale === 'ar';
   try {
     messages = await getMessages({ locale });
   } catch (error) {
     console.error('Could not load messages, see next-intl docs');
   }
   return (
-    <html lang={locale} dir={locale === 'ar' ? 'rtl' : 'ltr'}>
+    <html lang={locale} dir={isAr ? 'rtl' : 'ltr'}>
+      <head>
+        <link rel="icon" href="/favicon.ico" />
+        <title>
+          {isAr ? 'كتالوج ودجات فلاتر ' : 'Flutter Widgets Catalog'}
+        </title>
+        <meta
+          name="description"
+          content="An interactive catalog of Flutter widgets."
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${
-          locale === 'ar' ? cairo.variable : ''
+          isAr ? cairo.variable : ''
         } antialiased`}
       >
         <NextIntlClientProvider messages={messages}>

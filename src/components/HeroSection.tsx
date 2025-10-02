@@ -17,7 +17,9 @@ const HeroSection = () => {
     <Container className="py-10">
       <div className="flex flex-col items-center">
         {/* main heading */}
-        <h1 className="text-3xl">{t('title')}</h1>
+        <h2 className="text-3xl font-bold tracking-tight text-center sm:text-4xl">
+          {t('title')}
+        </h2>
         {/* end main heading */}
 
         {/* subtitle */}

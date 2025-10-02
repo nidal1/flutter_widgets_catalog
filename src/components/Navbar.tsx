@@ -1,11 +1,13 @@
 'use client';
 
-import { useLocale, useTranslations } from 'next-intl';
+import { useTranslations } from 'next-intl';
+import Image from 'next/image';
 import { usePathname, useRouter } from 'next/navigation';
+import Link from 'next/link';
 import React from 'react';
 import { useTheme } from '@/hooks/use-theme';
 import Container from './Container';
-import { GlobeIcon, MoonIcon, SearchIcon, SunIcon } from './icons';
+import { GlobeIcon, MoonIcon, SunIcon } from './icons';
 import { Button } from './ui/button';
 
 import {
@@ -15,18 +17,16 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 
-export default function Navbar() {
+export default function Navbar({ locale: currentLocale }: { locale: string }) {
   const { theme, toggleTheme } = useTheme();
   const t = useTranslations('Navbar');
   const router = useRouter();
   const pathname = usePathname();
-  const currentLocale = useLocale();
 
   const handleLanguageChange = (locale: string) => {
-    if (locale === currentLocale) return;
-    // The pathname will include the current locale, e.g., /en/about or /ar/about
-    // We need to replace the current locale with the new one.
-    const newPath = pathname.replace(`/${currentLocale}`, `/${locale}`);
+    if (locale === currentLocale || pathname.includes(locale)) return;
+    // The pathname from `usePathname` (from next-intl) does not include the locale.
+    const newPath = `/${locale}`;
     router.replace(newPath);
   };
 
@@ -34,7 +34,10 @@ export default function Navbar() {
     <header className="sticky top-0 z-50 w-full backdrop-blur backdrop-filter border-b border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-950">
       <Container>
         <div className="flex h-16 items-center justify-between">
-          <div className="font-bold text-lg">{t('title')}</div>
+          <Link href="/" className="flex items-center gap-3">
+            <Image src="/logo.png" alt={t('title')} width={40} height={40} />
+            <span className="text-xl font-semibold">{t('title')}</span>
+          </Link>
           <div className="flex items-center gap-4">
             <Button size="icon" className="size-8" onClick={toggleTheme}>
               {theme === 'light' ? (
