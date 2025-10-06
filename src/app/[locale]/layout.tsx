@@ -1,19 +1,12 @@
-import { Geist, Geist_Mono, Cairo } from 'next/font/google';
+import { Cairo, Inter } from 'next/font/google';
 import { NextIntlClientProvider } from 'next-intl';
 import type { Metadata } from 'next';
 import { getMessages } from 'next-intl/server';
 import '../globals.css';
 import GoogleAnalytics from '@/components/GoogleAnalytics';
+import LoadingScreen from '@/components/LoadingScreen';
 
-const geistSans = Geist({
-  variable: '--font-geist-sans',
-  subsets: ['latin'],
-});
-
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
-});
+const inter = Inter({ subsets: ['latin'] });
 
 const cairo = Cairo({
   subsets: ['arabic'],
@@ -56,11 +49,8 @@ export default async function LocaleLayout({
   }
   return (
     <html lang={locale} dir={isAr ? 'rtl' : 'ltr'}>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} ${
-          isAr ? cairo.variable : ''
-        } antialiased`}
-      >
+      <body className={isAr ? cairo.variable : inter.className}>
+        <LoadingScreen />
         <NextIntlClientProvider messages={messages}>
           <GoogleAnalytics />
           {children}
