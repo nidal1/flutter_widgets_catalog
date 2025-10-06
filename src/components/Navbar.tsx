@@ -39,7 +39,7 @@ export default function Navbar({ locale: currentLocale }: { locale: string }) {
             <span className="text-xl font-semibold">{t('title')}</span>
           </Link>
           <div className="flex items-center gap-4">
-            <Button size="icon" className="size-8" onClick={toggleTheme}>
+            <Button size="icon" onClick={toggleTheme}>
               {theme === 'light' ? (
                 <MoonIcon className="h-5 w-5" />
               ) : (
@@ -48,7 +48,7 @@ export default function Navbar({ locale: currentLocale }: { locale: string }) {
             </Button>
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button size="icon" className="size-8">
+                <Button size="icon">
                   <GlobeIcon className="h-5 w-5" />
                 </Button>
               </DropdownMenuTrigger>
@@ -61,6 +61,12 @@ export default function Navbar({ locale: currentLocale }: { locale: string }) {
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
+
+            <Button asChild>
+              <Link href="https://www.codinwar.com" target="_blank" rel="noopener noreferrer">
+                visit codinwar
+              </Link>
+            </Button>
           </div>
         </div>
       </Container>
