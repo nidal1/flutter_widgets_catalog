@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build --turbopack",
-    "prebuild": "npm run build:flutter && npm run copy:flutter && next build --turbopack",
+    "dev:build": "npm run build:flutter && npm run copy:flutter && next build --turbopack",
     "start": "next start",
     "lint": "eslint",
     "build:flutter": "cd flutter_web_widgets && flutter build web && cd ..",
