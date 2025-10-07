@@ -56,7 +56,6 @@ export default async function LocaleLayout({
           src={`https://www.googletagmanager.com/gtag/js?id=G-D4TJT58S5L`}
         />
 
-        {/* الـ Script الثاني: باش يدير Initialization و Configuration */}
         <Script id="ga-config" strategy="lazyOnload">
           {`
           window.dataLayer = window.dataLayer || [];

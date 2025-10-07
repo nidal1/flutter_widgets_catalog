@@ -16,6 +16,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
+import { FolderGit2, GitBranchPlus, Github } from 'lucide-react';
 
 export default function Navbar({ locale: currentLocale }: { locale: string }) {
   const { theme, toggleTheme } = useTheme();
@@ -39,6 +40,15 @@ export default function Navbar({ locale: currentLocale }: { locale: string }) {
             <span className="text-xl font-semibold">{t('title')}</span>
           </Link>
           <div className="flex items-center gap-4">
+            <Button size="icon">
+              <Link
+                href="https://github.com/nidal1/flutter_widgets_catalog"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FolderGit2 className="h-5 w-5" />
+              </Link>
+            </Button>
             <Button size="icon" onClick={toggleTheme}>
               {theme === 'light' ? (
                 <MoonIcon className="h-5 w-5" />
@@ -63,7 +73,11 @@ export default function Navbar({ locale: currentLocale }: { locale: string }) {
             </DropdownMenu>
 
             <Button asChild>
-              <Link href="https://www.codinwar.com" target="_blank" rel="noopener noreferrer">
+              <Link
+                href="https://www.codinwar.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 visit codinwar
               </Link>
             </Button>
