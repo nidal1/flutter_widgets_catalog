@@ -5,6 +5,7 @@ import { getMessages } from 'next-intl/server';
 import '../globals.css';
 import GoogleAnalytics from '@/components/GoogleAnalytics';
 import LoadingScreen from '@/components/LoadingScreen';
+import Script from 'next/script';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -50,6 +51,22 @@ export default async function LocaleLayout({
   return (
     <html lang={locale} dir={isAr ? 'rtl' : 'ltr'}>
       <body className={isAr ? cairo.variable : inter.className}>
+        <Script
+          strategy="lazyOnload"
+          src={`https://www.googletagmanager.com/gtag/js?id=G-D4TJT58S5L`}
+        />
+
+        {/* الـ Script الثاني: باش يدير Initialization و Configuration */}
+        <Script id="ga-config" strategy="lazyOnload">
+          {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-D4TJT58S5L', {
+            page_path: window.location.pathname,
+          });
+        `}
+        </Script>
         <LoadingScreen />
         <NextIntlClientProvider messages={messages}>
           <GoogleAnalytics />
